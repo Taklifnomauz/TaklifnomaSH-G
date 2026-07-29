@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const proposalCard = document.getElementById('proposal-card');
     const thanksCard = document.getElementById('thanks-card');
 
-    const startBtn = document.getElementById('start-btn');
+    // 1-oynadagi har qanday tugmani avtomatik topish:
+    const startBtn = introCard ? introCard.querySelector('button') : null;
     const yesBtn = document.getElementById('yes-btn');
     const noBtn = document.getElementById('no-btn');
 
-    // 1-bosqichdan 2-bosqichga o'tish
+    // 1-oynadan 2-oynaga o'tish (Boshlash / Maktubni ochish tugmasi)
     if (startBtn) {
         startBtn.addEventListener('click', () => {
             introCard.classList.add('hidden');
@@ -22,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxOffset = 70; 
         const randomX = (Math.random() - 0.5) * maxOffset * 2;
         const randomY = (Math.random() - 0.5) * maxOffset * 2;
-        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        if (noBtn) {
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
     }
 
     if (noBtn) {
@@ -33,19 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // "Albatta boraman!" bosilganda
+    // "Albatta boraman!" bosilganda (3-oynaga o'tish)
     if (yesBtn) {
         yesBtn.addEventListener('click', () => {
             proposalCard.classList.add('hidden');
             thanksCard.classList.remove('hidden');
             body.className = 'bg-state-3';
 
-            confetti({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#d39e8c', '#e8ded6', '#c49a88', '#ffd700', '#ffffff']
-            });
+            // Confetti (otiluvchi gullar)
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 150,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    colors: ['#d39e8c', '#e8ded6', '#c49a88', '#ffd700', '#ffffff']
+                });
+            }
         });
     }
 });
