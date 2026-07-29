@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-image 0.6s ease-in-out;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Har bir bosqich uchun alohida rasm foni */
+body.bg-state-1 {
+    background-image: url('bg1.png');
+}
+
+body.bg-state-2 {
+    background-image: url('bg2.png');
+}
+
+body.bg-state-3 {
+    background-image: url('bg3.png');
+}
+
+/* Monogramma: SH 💖 G */
+.monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #8c6356;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    background: rgba(240, 225, 215, 0.5);
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(196, 154, 136, 0.4);
+}
+
+.monogram span {
+    font-size: 0.9rem;
+}
+
+/* Karta dizayni */
+.card {
+    background: rgba(253, 250, 247, 0.94);
+    padding: 40px 32px;
+    border-radius: 28px;
+    box-shadow: 0 15px 35px rgba(165, 142, 130, 0.15);
+    border: 1.5px solid rgba(224, 210, 200, 0.8);
+    text-align: center;
+    max-width: 440px;
+    width: 88%;
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.card-icon {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.big-emoji {
+    font-size: 40px;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #4a3e39;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.romantic-title {
+    font-size: 1.9rem;
+    color: #6d4a3e;
+}
+
+p.subtitle {
+    color: #7d6e67;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+p.message {
+    color: #5a4d46;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 15px 0 25px 0;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    height: 1px;
+    width: 45px;
+    background-color: #d8c4b6;
+}
+
+.divider span {
+    padding: 0 10px;
+    color: #c49a88;
+    font-size: 0.8rem;
+}
+
+.single-heart {
+    color: #a37666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    min-height: 55px;
+}
+
+/* Pastel roza/jigarrang tugmalar */
+.main-btn {
+    background: linear-gradient(135deg, #d39e8c 0%, #c48b78 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(196, 139, 120, 0.3);
+    transition: all 0.25s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(196, 139, 120, 0.4);
+}
+
+.no-btn {
+    background: #e8ded6;
+    color: #7a6b63;
+    box-shadow: none;
+    position: relative;
+    transition: transform 0.15s ease-out;
+}

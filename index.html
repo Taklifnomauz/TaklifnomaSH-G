@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxsus Taklifnoma 💍</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Gullar va confetti otilishi uchun kutubxona -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="background-decor"></div>
+
+    <!-- 1-SAHIFA: Intro -->
+    <div id="intro-card" class="card">
+        <div class="icon-header">💌</div>
+        <h1>Siz uchun maxsus taklif!</h1>
+        <p>Ushbu maktubni ochish uchun quyidagi tugmani bosing:</p>
+        <button id="start-btn" class="main-btn">Boshlash ✨</button>
+    </div>
+
+    <!-- 2-SAHIFA: Asosiy taklif -->
+    <div id="proposal-card" class="card hidden">
+        <div class="icon-header">💒</div>
+        <h2>Qadrli do'stim!</h2>
+        <p class="message">
+            Hayotimizdagi eng quvonchli va unutilmas kunlardan biri yaqinlashmoqda.<br><br>
+            Sizni ushbu qutlug' kunda <b>Nikohdan o'tish (ZAKS)</b> marosimimizga taklif etaman!
+        </p>
+        
+        <div class="buttons-container" id="btn-area">
+            <button id="yes-btn" class="main-btn yes-btn">Albatta boraman! 🥳</button>
+            <button id="no-btn" class="main-btn no-btn">Yo'q 😜</button>
+        </div>
+    </div>
+
+    <!-- 3-SAHIFA: Yakun -->
+    <div id="thanks-card" class="card hidden">
+        <div class="icon-header">🎉</div>
+        <h1>Katta rahmat!</h1>
+        <p class="message">Sizni ushbu unutilmas kunda intizorlik bilan kutib qolamiz!</p>
+    </div>
+
+    <!-- Moshina animatsiyasi -->
+    <div id="car" class="car hidden">🏎️👰‍♀️🤵‍♂️💨</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
