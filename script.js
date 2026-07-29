@@ -1,80 +1,51 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maxsus Taklifnoma 💍</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-</head>
-<body class="bg-state-1" id="page-body">
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.getElementById('page-body');
+    const introCard = document.getElementById('intro-card');
+    const proposalCard = document.getElementById('proposal-card');
+    const thanksCard = document.getElementById('thanks-card');
 
-    <!-- 1-SAHIFA: Kirish -->
-    <div id="intro-card" class="card">
-        <!-- SH 💖 G monogrammasi -->
-        <div class="monogram">SH <span>💖</span> G</div>
-        
-        <div class="card-icon">
-            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#a37666" stroke-width="1.5">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-                <path d="M12 9.5L10.5 8C9.5 7 8 7 7 8s-1 2.5 0 3.5L12 16l5-4.5c1-1 1-2.5 0-3.5s-2.5-1-3.5 0L12 9.5z" fill="#dfa290" stroke="none"></path>
-            </svg>
-        </div>
-        
-        <h2>Siz uchun maxsus taklif!</h2>
-        <p class="subtitle">
-            08.07.2026-yil kuni Chorsudagi Yagona darcha maskanida hayotimizning yangi sahifasini birga ochamiz...
-        </p>
-        <button id="start-btn" class="main-btn">Maktubni ochish ✨</button>
-    </div>
+    const startBtn = document.getElementById('start-btn');
+    const yesBtn = document.getElementById('yes-btn');
+    const noBtn = document.getElementById('no-btn');
 
-    <!-- 2-SAHIFA: Asosiy Taklif -->
-    <div id="proposal-card" class="card hidden">
-        <!-- SH 💖 G monogrammasi -->
-        <div class="monogram">SH <span>💖</span> G</div>
+    // 1-bosqichdan 2-bosqichga o'tish
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            introCard.classList.add('hidden');
+            proposalCard.classList.remove('hidden');
+            body.className = 'bg-state-2';
+        });
+    }
 
-        <div class="card-icon">
-            <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#b08665" stroke-width="1.5">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#dfa290" stroke="none"/>
-            </svg>
-        </div>
+    // "Yo'q" tugmasining qochishi
+    function dodgeNoButton() {
+        const maxOffset = 70; 
+        const randomX = (Math.random() - 0.5) * maxOffset * 2;
+        const randomY = (Math.random() - 0.5) * maxOffset * 2;
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
 
-        <h2 class="romantic-title">Qalbim Quvonchi, Suyukli Yorim!</h2>
-        <div class="divider"><span>♥</span></div>
-        
-        <p class="message">
-            Allohning inoyati ila hayotimizdagi eng go'zal, quvonchli va unutilmas kunlardan biri yaqinlashmoqda.<br><br>
-            Sizni ushbu qutlug' kunda <b>Nikohdan o'tish (ZAKS)</b> marosimimizga chin qalbimdan taklif etaman!
-        </p>
-        
-        <div class="buttons-container">
-            <button id="yes-btn" class="main-btn yes-btn">Albatta boraman! 💐</button>
-            <button id="no-btn" class="main-btn no-btn">Yo'q 🥺</button>
-        </div>
-    </div>
+    if (noBtn) {
+        noBtn.addEventListener('mouseenter', dodgeNoButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            dodgeNoButton();
+        });
+    }
 
-    <!-- 3-SAHIFA: Yakuniy minnatdorchilik -->
-    <div id="thanks-card" class="card hidden">
-        <!-- SH 💖 G monogrammasi -->
-        <div class="monogram">SH <span>💖</span> G</div>
+    // "Albatta boraman!" bosilganda
+    if (yesBtn) {
+        yesBtn.addEventListener('click', () => {
+            proposalCard.classList.add('hidden');
+            thanksCard.classList.remove('hidden');
+            body.className = 'bg-state-3';
 
-        <div class="card-icon">
-            <span class="big-emoji">🎉</span>
-        </div>
-
-        <h2>Katta rahmat!</h2>
-        <div class="divider"><span>♥</span></div>
-        
-        <p class="message">
-            Ushbu unutilmas va shukuhli kunda Sizni intizorlik bilan kutib qolaman! 💖
-        </p>
-        <div class="single-heart">✨ Alhamdulillah ✨</div>
-    </div>
-
-</body>
-<script src="script.js"></script>
-</html>
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#d39e8c', '#e8ded6', '#c49a88', '#ffd700', '#ffffff']
+            });
+        });
+    }
+});
