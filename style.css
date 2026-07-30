@@ -17,6 +17,23 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+{
+    min-height: 100vh;
+    /* Telefon ekranining to'liq balandligini qamrab olish uchun: */
+    min-height: -webkit-fill-available; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Fon rasmini har qanday ekranga moslashtirish */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Telefonda fon surilib ketmasligi uchun */
+    
+    padding: 15px;
+    box-sizing: border-box;
+}
 
 /* Har bir bosqich uchun alohida rasm foni */
 body.bg-state-1 {
@@ -62,6 +79,14 @@ body.bg-state-3 {
     width: 88%;
     backdrop-filter: blur(6px);
     animation: fadeIn 0.5s ease-out;
+}
+/* Telefonlar uchun kartochka o'lchami */
+ {
+    width: 100%;
+    max-width: 400px;
+    padding: 25px 15px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 @keyframes fadeIn {
