@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const introCard = document.getElementById('intro-card');
     const proposalCard = document.getElementById('proposal-card');
     const thanksCard = document.getElementById('thanks-card');
+    const bgMusic = document.getElementById('bgMusic'); // Musiqani tutib olamiz
 
     // 1-oynadagi har qanday tugmani avtomatik topish:
     const startBtn = introCard ? introCard.querySelector('button') : null;
@@ -15,6 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
             introCard.classList.add('hidden');
             proposalCard.classList.remove('hidden');
             body.className = 'bg-state-2';
+
+            // 🎵 MUSIQA SHU YERDA YOQILADI:
+            if (bgMusic) {
+                bgMusic.play().catch(error => {
+                    console.log("Musiqani ijro etishda xatolik:", error);
+                });
+            }
         });
     }
 
@@ -36,14 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // "Albatta boraman!" bosilganda (3-oynaga o'tish)
+    // "Taklifni qabul qilaman!" bosilganda (3-oynaga o'tish)
     if (yesBtn) {
         yesBtn.addEventListener('click', () => {
             proposalCard.classList.add('hidden');
             thanksCard.classList.remove('hidden');
             body.className = 'bg-state-3';
 
-            // Confetti (otiluvchi gullar)
+            // Confetti (otiluvchi gullar/sallyut)
             if (typeof confetti === 'function') {
                 confetti({
                     particleCount: 150,
