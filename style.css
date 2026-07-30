@@ -16,15 +16,12 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-{
     min-height: 100vh;
     /* Telefon ekranining to'liq balandligini qamrab olish uchun: */
     min-height: -webkit-fill-available; 
     display: flex;
     justify-content: center;
     align-items: center;
-    
     /* Fon rasmini har qanday ekranga moslashtirish */
     background-size: cover;
     background-position: center center;
